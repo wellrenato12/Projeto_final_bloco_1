@@ -7,9 +7,8 @@ import projeto_final_bloco_1.model.Livro;
 import projeto_final_bloco_1.repository.BibliotecaRepository;
 
 public class BibliotecaController implements BibliotecaRepository {
-	
+
 	private List<Livro> livros = new ArrayList<Livro>();
-	//private List<Leitor> leitores = new ArrayList<Leitor>();
 
 	@Override
 	public void cadastrar(Livro livro) {
@@ -27,7 +26,7 @@ public class BibliotecaController implements BibliotecaRepository {
 		} else {
 			System.out.println("\nO livro: " + livro.getNome() + " não foi encontrado!");
 		}
-		
+
 	}
 
 	@Override
@@ -43,18 +42,15 @@ public class BibliotecaController implements BibliotecaRepository {
 
 	@Override
 	public void mostrar() {
-		for (var livro : livros) {
-			livro.visualizar();
+		if (!livros.isEmpty()) {
+			for (var livro : livros) {
+				livro.visualizar();
+			}
+		} else {
+			System.out.println("Lista de livros vazia!");
 		}
 	}
-	
-	/*@Override
-	public void visualizarLeitor() {
-		for (var leitor : leitores) {
-			leitor.visualizar();
-		}
-	}*/
-	
+
 	public void iniciarListaLivros() {
 		livros.add(new Livro("Dom Casmurro", "Machado de Assis"));
 		livros.add(new Livro("Orgulho e Preconceito", "Jane Austen"));

@@ -7,6 +7,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import projeto_final_bloco_1.controller.BibliotecaController;
+import projeto_final_bloco_1.model.Leitor;
 import projeto_final_bloco_1.model.Livro;
 import projeto_final_bloco_1.util.Cores;
 
@@ -15,7 +16,6 @@ public class Menu {
 	public static void main(String[] args) {
 
 		BibliotecaController livros = new BibliotecaController();
-		BibliotecaController leitores = new BibliotecaController();
 
 		String nome, autor;
 		int opcao;
@@ -23,6 +23,13 @@ public class Menu {
 		Scanner scanner = new Scanner(System.in);
 
 		System.out.println("Bem vindes a nossa biblioteca!");
+		System.out.println("Informe seu nome: ");
+		String nomeLeitor = scanner.nextLine();
+		System.out.println("Informe seu e-mail: ");
+		String emailLeitor = scanner.nextLine();
+		System.out.println("Informe sua idade: ");
+		int idade = scanner.nextInt();
+		Leitor leitor = new Leitor(nomeLeitor, emailLeitor, idade);
 
 		livros.iniciarListaLivros();
 
@@ -38,7 +45,7 @@ public class Menu {
 			System.out.println("            2 - Listar todos os livros                       ");
 			System.out.println("            3 - Atualizar dados do livro              ");
 			System.out.println("            4 - Remover livro             ");
-			// System.out.println(" 5 - Remover livro ");
+			System.out.println("            5 - Informações leitor               ");
 			// System.out.println(" 6 - Sacar ");
 			// System.out.println(" 7 - Depositar ");
 			// System.out.println(" 8 - Transferir valores entre Contas ");
@@ -111,6 +118,13 @@ public class Menu {
 				nome = scanner.nextLine();
 
 				livros.deletar(nome);
+				keyPress();
+				break;
+			case 5:
+				System.out.println("\nInformações leitor: ");
+				System.out.println("Nome: "+leitor.getNome());
+				System.out.println("E-mail: "+leitor.getEmail());
+				System.out.println("Idade: "+leitor.getIdade());
 				keyPress();
 				break;
 			default:
