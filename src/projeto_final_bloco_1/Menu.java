@@ -36,7 +36,7 @@ public class Menu {
 			System.out.println("                                                     ");
 			System.out.println("            1 - Cadastrar Livro               ");
 			System.out.println("            2 - Listar todos os livros                       ");
-			System.out.println("            3 - Atualizar Dados da Conta              ");
+			System.out.println("            3 - Atualizar dados do livro              ");
 			System.out.println("            4 - Remover livro             ");
 			// System.out.println(" 5 - Remover livro ");
 			// System.out.println(" 6 - Sacar ");
